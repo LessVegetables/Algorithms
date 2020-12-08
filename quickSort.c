@@ -56,15 +56,48 @@ void quickSort (int *List[], int Length)
 
 int main ()
 {
-    int Length = 9;
-    int List[9] = { 1, 3, 7, 2, 5, 9, 6, 8, 4 };
+    /*
+	int Length = 9;
+    int data[Length] = { 1, 3, 7, 2, 5, 9, 6, 8, 4 };
     
-    quickSort (*List[], Length);
+    quickSort (data[], Length);
 
     for (int i = 0; i < Length; i++)
     {
-      printf ("%d\t", List[i]);
+      printf ("%d\t", data[i]);
     }
+	*/
+	
+	FILE *input = fopen("input.txt", "r");
+	FILE *output = fopen("output.txt", "w");
+	
+	if (in_file == NULL || out_file == NULL) 
+	{
+		printf("Error! Could not open file\n"); 
+		exit(-1); // must include stdlib.h 
+	}
+	
+	// getting the data from input file
+    int Length;
+    fscanf(input, "%d", &Length);
+    int data[Length];
+	
+    for (int i = 0; i < Length; i++)
+    {
+        fscanf(input, "%d", &data[i]);
+    }
+    fclose(input);
+
+	// running the algorithm
+    quickSort(data[], Length);
+
+	// outputting the data into output file
+    for (int i = 0; i < Length; i++)
+    {
+        fprintf(output, "%d\t", data[i]);
+		fprintf(output, "\n");
+    }
+    fclose(outputfile);
 
   return 0;
 }
