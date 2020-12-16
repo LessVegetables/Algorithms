@@ -107,7 +107,7 @@ int main ()
 
     // getting data from input file
     int Length, recursion = 0;
-    fscanf(input, "%d", &Length, &recursion);
+    fscanf(input, "%d", &Length);
     int data[Length];
     for (int i = 0; i < Length; i++)
     {
@@ -122,7 +122,7 @@ int main ()
     gettimeofday(&start, NULL);
 
     // running the algorithm
-    quickSort (data, Length); ////////////////////////////////////////////////////////
+    quickSort (data, Length, &recursion);
 
     // ending timer
     gettimeofday(&stop, NULL);
